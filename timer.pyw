@@ -34,7 +34,8 @@ class Countdown(tk.Frame):
 
     def create_widgets(self):
         global alarm_choose, startText, stopText, language
-
+        frame = Frame(self, relief=RAISED, borderwidth=1)
+        frame.pack(fill=BOTH, side = BOTTOM, expand=True)
         self.label = tk.Label(self, text="00:00:00", fg = "blue", font = "Calibri 25 bold")
         self.entry = tk.Entry(self, justify='center')
         self.entry.focus_set()
@@ -42,7 +43,7 @@ class Countdown(tk.Frame):
         self.stop = tk.Button(self, textvariable=stopText, command=self.stop_timer, bg = "#ff887f")
         self.languagepicker = tk.Button(frame, textvariable=language, command=self.switch_language)
         self.variable = tk.StringVar()
-        self.variable.set("Analog") # default value
+        self.variable.set("Analog")
         options = ["Analog", "Tornado", "Purge"]
         self.sound = tk.OptionMenu(frame, self.variable, *options,  command=self.func)
 
